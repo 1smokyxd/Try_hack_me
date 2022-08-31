@@ -1,0 +1,33 @@
+downloaded a wireshark file.
+looked around and found out the attacker is tring to login in to ftp server.
+right clicked on it to get tcp stream and got user name and password 
+jenny:password123
+
+looked around for pwd got the current working directory.
+13. The project can be used to install a stealthy backdoor on the system. It can be very hard to detect. What is this 	type of backdoor called?
+ -> rootkit
+
+Target IP : 10.10.102.32
+since attacker has changed password nad we have username 
+using Hydra to brute force
+got new password
+[21][ftp] host: 10.10.102.32   login: jenny   password: 987654321
+
+login in to ftp
+now we can do what the attacker did.
+
+ get shell.php
+--reverse shell--
+edit it by adding your ip for reverse shell.
+
+run the shell.php using curl or from the browser : http://IP/shell.php
+
+make it stable using python command:
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+since we are on www-data
+since there is no perm to switch to root first 
+switching to jenny
+and again to root user.
+and look for flag.txt
